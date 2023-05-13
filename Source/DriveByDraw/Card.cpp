@@ -13,6 +13,7 @@ UCard::UCard()
 }
 
 
+
 CardType UCard::GetType()
 {
 	return CardType::Card;

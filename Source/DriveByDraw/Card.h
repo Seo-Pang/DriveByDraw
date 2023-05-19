@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "Card.generated.h"
 /**
  */
- 
+
 UENUM(BlueprintType)
 enum class CardType : uint8
 {
@@ -22,24 +23,25 @@ class DRIVEBYDRAW_API UCard : public UObject
 	GENERATED_BODY()
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8 id;
+		uint8 id;
 	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "CardType"), BlueprintReadWrite)
-	CardType type;
+		CardType type;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString name;
+		FString name;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	uint8 cost;
+		uint8 cost;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UTexture2D* image;
+		UTexture2D* image;
 
-	//카드를 사용합니다. 만약 카드가 정상적으로 사용되었다면 true를 반환합니다.
-	UFUNCTION()
-	virtual bool UseCard();
-	
+	//카드를 사용할 때 카드의 기능이 있는 함수입니다(액션 큐에 직접적으로 들어갈 함수)
+	UFUNCTION(BlueprintCallable)
+		virtual void Act();
+
 	//카드 종류를 반환합니다.
-	UFUNCTION()
-	virtual CardType GetType();
+	UFUNCTION(BlueprintCallable)
+		virtual CardType GetType();
 
 	UCard();
+	UFUNCTION(BlueprintCallable)
+	static UCard* SetCard(int cardId);
 };
-

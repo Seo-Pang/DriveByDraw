@@ -2,7 +2,7 @@
 
 
 #include "Card.h"
-
+#include <random>
 
 UCard::UCard()
 {
@@ -12,18 +12,27 @@ UCard::UCard()
 	image = NULL;
 }
 
+void UCard::Act()
+{
 
+}
 
 CardType UCard::GetType()
 {
 	return CardType::Card;
 }
 
-bool UCard::UseCard()
+UCard* UCard::SetCard(int cardID)
 {
-	//대충 카드를 사용해야 하지만 어떻게 그냥 Card 종류이면 하지 않기로 하고 싶다.
-	//무슨 소리인지 알고 싶으면 카톡할 것.
-
-	//일반 카드는 없어야 함.
-	return false;
+	UCard* temp{NewObject<UCard>(GetTransientPackage(),UCard::StaticClass()) };;
+	temp->id = 0;
+	temp->name = TEXT("\0");
+	temp->cost = 0;
+	
+	temp->image = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, TEXT("/Game/DBD/UI/Image/Card/1.1")));
+	return temp;
 }
+
+
+
+

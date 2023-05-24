@@ -5,23 +5,34 @@
 
 UDeck::UDeck() 
 {
-
+	DrawIndex = 0;
 }
 UCard* UDeck::Draw()
 {
-	UCard* a{ NewObject<UCard>(GetTransientPackage(),UCard::StaticClass())};
-
-	return a;
+	UCard* CardToDraw = nullptr;
+	if (DrawIndex < OwnCard.Num())
+	{
+		CardToDraw = OwnCard[DrawIndex];
+		DrawIndex++;
+	}
+	return CardToDraw;
 }
 void UDeck::Shuffle()
 {
 
 }
-void UDeck::InitDeck() 
+void UDeck::InitDeck(int CardMaxNumber) 
 {
-	UCard* CardPtr = *OwnCard.GetData();
-	for (int i = 0; i != OwnCard.Num(); ++i)
+	for (int i = 0; i < CardMaxNumber; i++)
 	{
-		CardPtr[i].SetCard(i); //
+		OwnCard.Add(NewObject<UCard>(GetTransientPackage(), UCard::StaticClass()));
+	}
+
+	for (int i = 0; i != OwnCard.Num(); i++)
+	{
+		
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("I : %d"), i)), false);
+		OwnCard[i]= UCard::SetCard(i);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("IDD : %d"), OwnCard[i]->id)), false);
 	}
 }

@@ -11,26 +11,29 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class DRIVEBYDRAW_API UDeck : public UObject
 {
 	GENERATED_BODY()
 
 private:
-	TArray<UCard*> OwnCard;
+	int32 DrawIndex{};
 
 public:
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<UCard*> OwnCard;
+
 	//덱에 맨 위에 있는 카드를 가져온다.
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		UCard* Draw();
 
 	//카드를 셔플
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		void Shuffle();
 
 	//덱 세팅
-	UFUNCTION()
-		void InitDeck();
+	UFUNCTION(BlueprintCallable)
+		void InitDeck(int CardMaxNumber);
 	UDeck();
 };

@@ -6,6 +6,8 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Character.h"
+
+#include "Deck.h"
 #include "Driver.generated.h"
 
 UCLASS()
@@ -14,10 +16,9 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
-	ADriver();
-
+	
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
@@ -27,6 +28,9 @@ protected:
 	USpringArmComponent* SpringArmComponent;
 
 public:	
+	// Sets default values for this character's properties
+	ADriver();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

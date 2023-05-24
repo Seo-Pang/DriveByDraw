@@ -43,5 +43,5 @@ public:
 
 	UCard();
 	UFUNCTION(BlueprintCallable)
-	static UCard* SetCard(int cardId);
+	static UCard* SetCard(int CardID);
 };

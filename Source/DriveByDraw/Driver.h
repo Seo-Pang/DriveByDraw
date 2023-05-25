@@ -8,6 +8,7 @@
 #include "GameFramework/Character.h"
 
 #include "Deck.h"
+#include "CardField.h"
 #include "Driver.generated.h"
 
 UCLASS()
@@ -16,6 +17,10 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 	GENERATED_BODY()
 
 public:
+	
+	UPROPERTY(EditAnywhere)
+	UDeck* OwnDeck;
+	TArray<ACardField*> OwnField;
 	
 protected:
 
@@ -26,6 +31,8 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent* SpringArmComponent;
+
+	
 
 public:	
 	// Sets default values for this character's properties

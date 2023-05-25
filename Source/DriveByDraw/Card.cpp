@@ -42,7 +42,7 @@ UCard* UCard::SetCard(int CardID)
 	temp->image = Cast<UTexture2D>(StaticLoadObject(UTexture2D::StaticClass(), nullptr, TexturePathPtr));
 
 	// Display the message on the screen.
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, FString::Printf(TEXT("%s"), TexturePathPtr), false);
+	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, FString::Printf(TEXT("%s"), TexturePathPtr), false);
 	return temp;
 }
 

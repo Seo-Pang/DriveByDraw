@@ -33,6 +33,6 @@ void UDeck::InitDeck(int CardMaxNumber)
 		
 		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("I : %d"), i)), false);
 		OwnCard[i]= UCard::SetCard(i);
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("IDD : %d"), OwnCard[i]->id)), false);
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("IDD : %d"), OwnCard[i]->id)), false);
 	}
 }

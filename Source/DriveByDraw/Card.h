@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+
+#include "Action.h"
 #include "Card.generated.h"
 /**
  */
@@ -32,6 +34,10 @@ public:
 		uint8 cost;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UTexture2D* image;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UAction* Action;
+
+
 
 	//카드를 사용할 때 카드의 기능이 있는 함수입니다(액션 큐에 직접적으로 들어갈 함수)
 	UFUNCTION(BlueprintCallable)

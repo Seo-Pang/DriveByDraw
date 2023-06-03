@@ -26,10 +26,11 @@ class DRIVEBYDRAW_API UAction : public UObject
 {
 	GENERATED_BODY()
 		
-
+private:
+	UTexture2D* Icon;
 public:
 	UPROPERTY(EditAnywhere)
-		int HP;
+	int HP;
 	UFUNCTION(BlueprintCallable)
 	void SpawnMonster();
 	UFUNCTION(BlueprintCallable)

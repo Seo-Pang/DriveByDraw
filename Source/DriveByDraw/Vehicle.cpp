@@ -33,3 +33,8 @@ void UVehicle::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	// ...
 }
 
+void UVehicle::SetGo(bool bGo)
+{
+	int a = bGo * 100;
+	Speed = a;
+}

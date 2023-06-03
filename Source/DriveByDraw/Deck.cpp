@@ -23,6 +23,9 @@ void UDeck::Shuffle()
 }
 void UDeck::InitDeck(int CardMaxNumber) 
 {
+	
+	OwnCard.Empty();
+
 	for (int i = 0; i < CardMaxNumber; i++)
 	{
 		OwnCard.Add(NewObject<UCard>(GetTransientPackage(), UCard::StaticClass()));

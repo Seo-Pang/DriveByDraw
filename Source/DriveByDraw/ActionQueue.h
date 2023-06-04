@@ -11,7 +11,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType)
 class DRIVEBYDRAW_API UActionQueue : public UObject
 {
 	GENERATED_BODY()
@@ -22,13 +22,17 @@ public:
 	UPROPERTY()
 		TArray<UAction*> ActionList;
 
-	UFUNCTION()
-		void Enqueue(UAction* Acitonn);
+	UFUNCTION(BlueprintCallable)
+		void Enqueue(UAction* Aciton);
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		UAction* Dequeue();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		int GetNumber();
+
+	UFUNCTION(BlueprintCallable)
+		static UActionQueue* InitQueue();
+
 	
 };

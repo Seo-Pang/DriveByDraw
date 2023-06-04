@@ -25,6 +25,8 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	UPROPERTY(EditAnywhere, Category = Movement)
 		float Speed = 100.0f; // Adjust the speed as per your needs
+
+	//go and not go
 	UFUNCTION(BlueprintCallable, Category = Movement)
 		void SetGo(bool bGo);
 

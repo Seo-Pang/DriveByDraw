@@ -12,3 +12,11 @@ void UAction::Damage(AMonster* target, float damage)
 {
 
 }
+
+UAction* UAction::SetAction()
+{
+	UAction* item = NewObject<UAction>(GetTransientPackage(), UAction::StaticClass());;
+	item->type = ActionType::Not;
+
+	return item;
+}

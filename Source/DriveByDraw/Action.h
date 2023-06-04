@@ -13,7 +13,7 @@
  */
 
 UENUM(BlueprintType)
-enum ActionType
+enum class ActionType : uint8
 {
 	Spawn UMETA(DisplayName = "Spawn"),
 	Attack UMETA(DisplayName = "Attack"),
@@ -29,11 +29,14 @@ class DRIVEBYDRAW_API UAction : public UObject
 private:
 	UTexture2D* Icon;
 public:
-	UPROPERTY(EditAnywhere)
-	int HP;
+	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "CardType"), BlueprintReadWrite)
+	ActionType type;
+
 	UFUNCTION(BlueprintCallable)
 	void SpawnMonster();
 	UFUNCTION(BlueprintCallable)
 	void Damage(AMonster* target, float damage);
 	
+	UFUNCTION(BlueprintCallable)
+	static UAction* SetAction();
 };

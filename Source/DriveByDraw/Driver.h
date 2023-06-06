@@ -20,8 +20,13 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 public:
 	
 	UPROPERTY(EditAnywhere)
-	UDeck* OwnDeck;
-	TArray<ACardField*> OwnField;
+		UDeck* OwnDeck;
+	UPROPERTY(EditAnywhere)
+		TArray<ACardField*> OwnField;
+
+	//사용할 기본 클래스
+	UPROPERTY(EditAnywhere)
+		UBlueprint* DefaultField;
 
 protected:
 
@@ -32,6 +37,10 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent* SpringArmComponent;
+
+private:
+	//max count 
+	const int FieldNumber = 6;
 
 	
 

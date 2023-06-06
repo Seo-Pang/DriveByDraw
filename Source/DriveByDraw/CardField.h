@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Card.h"
+#include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "CardField.generated.h"
 
 UCLASS()
@@ -15,7 +17,15 @@ class DRIVEBYDRAW_API ACardField : public AActor
 
 public:	
 	UCard* CardData;
-	UStaticMeshComponent* FieldBody;
+
+	UPROPERTY(EditAnywhere)
+		UCapsuleComponent* MainComponent;
+
+	UPROPERTY(EditAnywhere)
+		UStaticMeshComponent* FieldBody;
+
+	UPROPERTY(EditAnywhere)
+		UBoxComponent* MonsterSpawnLocation;
 
 protected:
 	// Called when the game starts or when spawned

@@ -9,6 +9,7 @@ ADriver::ADriver()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
     // Create the Spring Arm component
     SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
     SpringArmComponent->SetupAttachment(GetRootComponent());
@@ -19,14 +20,31 @@ ADriver::ADriver()
     // Attach the camera to the Spring Arm
     CameraComponent->SetupAttachment(SpringArmComponent);
 
+
+    //Actor's Card Field Generated
+    ACardField* TempField = NewObject<ACardField>();
+    OwnField.Init(TempField, FieldNumber);
+   
+
 }
 
 // Called when the game starts or when spawned
 void ADriver::BeginPlay()
 {
 	Super::BeginPlay();
+    int i = 0;
+    for (auto iField : OwnField)
+    {
+        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, FString::Printf(TEXT("i = %d"), i), false);
+        FVector iOffset(-625/2, 450.f, 0.f);
+        iOffset += FVector(125 * i, 0, 0);
+        iField = GetWorld()->SpawnActor<ACardField>(DefaultField->GeneratedClass);
 
-   
+        //LoadObject<UBlueprint>(nullptr, TEXT("Blueprint'/Game/DBD/Extra/CardField.CardField'"), TEXT("ASD")
+        iField->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
+        iField->AddActorLocalOffset(iOffset);
+        i++;
+    }
 	
 }
 

@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<UCard*> OwnCard;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UCard* OneOwnCard;
+
 	//덱에 맨 위에 있는 카드를 가져온다.
 	UFUNCTION(BlueprintCallable)
 		UCard* Draw();

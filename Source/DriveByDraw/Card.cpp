@@ -7,9 +7,13 @@
 UCard::UCard()
 {
 	id = 0;
+	type = CardType::MonsterCard;
 	name = TEXT("\0");
 	cost = 0;
 	image = NULL;
+	
+	
+		 
 }
 
 void UCard::Act()
@@ -24,14 +28,16 @@ CardType UCard::GetType()
 
 UCard* UCard::SetCard(int CardID)
 {
-	CardID %= 5;
-	CardID += 1;
+	int ImageCardID = CardID;
+	
+	if (ImageCardID >= 6) ImageCardID %= 5;;
 	FString CardImageAddress = TEXT("/Game/DBD/UI/Image/Card/");
-	CardImageAddress += FString(FString::Printf(TEXT("%d.%d"), CardID, CardID));
+	CardImageAddress += FString(FString::Printf(TEXT("%d.%d"), ImageCardID, ImageCardID));
 
 	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, CardImageAddress, false);
 
-	UCard* temp = NewObject<UCard>(GetTransientPackage(),UCard::StaticClass());;
+	//UCard* temp = NewObject<UCard>(GetTransientPackage(),UCard::StaticClass());;
+	UCard* temp = NewObject<UCard>(GetTransientPackage(), UCard::StaticClass());;
 	temp->id = CardID; 
 	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Blue, FString::Printf(TEXT("ID: %d %d"), CardID, temp->id), false);
 

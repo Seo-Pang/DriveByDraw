@@ -12,7 +12,7 @@ UActionQueue::UActionQueue()
 void UActionQueue::Enqueue(UAction* Action)
 {
 	ActionList.Add(Action);
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Enqueue", false);
+	//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Enqueue", false);
 }
 
 UAction* UActionQueue::Dequeue()

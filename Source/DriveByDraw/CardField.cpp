@@ -42,3 +42,52 @@ void ACardField::Tick(float DeltaTime)
 
 }
 
+bool ACardField::DragOnCard_Implementation(UCard* DragCard)
+{
+	bool ReturnData = false;
+	
+	switch (DragCard->type)
+	{
+	case CardType::Card:
+		//Card 
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("Card TYPE"));
+		break;
+	case CardType::MonsterCard :
+		//MonsterCard
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("MonsterCard TYPE"));
+		SpawnMonster(UCard::SetCard(1));
+		break;
+	case CardType::AttackCard :
+		//AttackCard
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("AttackCard TYPE"));
+		break;
+	case CardType::SpeedCard :
+		//SpeedCard
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Emerald, TEXT("SpeedCard TYPE"));
+		break;
+	default :
+		break;
+	}
+	
+	
+
+	return ReturnData;
+}
+
+AMonster* ACardField::SpawnMonster(UCard* Card)
+{
+	AMonster* iMonster = nullptr;
+
+
+	//¿©±â ¿Ö ¾ÈµÊ?
+	/*TSubclassOf<AMonster> iMonsterClass;
+	ConstructorHelpers::FObjectFinder<UClass> BPMonster(TEXT("Blueprint'/Game/DBD/Monster/BP_Crow.BP_Crow_C'"));
+	if (BPMonster.Succeeded())
+	{
+		iMonsterClass = BPMonster.Object;
+		iMonster = GetWorld()->SpawnActor<AMonster>(iMonsterClass);
+	}*/
+	return iMonster;
+	
+}
+

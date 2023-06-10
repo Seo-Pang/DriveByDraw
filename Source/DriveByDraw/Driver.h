@@ -12,6 +12,9 @@
 #include "CardField.h"
 #include "Driver.generated.h"
 
+class ACardField;
+class UDeck;
+
 UCLASS()
 class DRIVEBYDRAW_API ADriver : public ACharacter
 {
@@ -20,7 +23,11 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 public:
 	
 	UPROPERTY(EditAnywhere)
+		int MyTeam;
+
+	UPROPERTY(EditAnywhere)
 		UDeck* OwnDeck;
+
 	UPROPERTY(EditAnywhere)
 		TArray<ACardField*> OwnField;
 
@@ -30,8 +37,7 @@ public:
 
 protected:
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
     UCameraComponent* CameraComponent;
 
@@ -42,7 +48,6 @@ private:
 	//max count 
 	const int FieldNumber = 6;
 
-	
 
 public:	
 	// Sets default values for this character's properties
@@ -51,6 +56,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void Debugging();
 
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

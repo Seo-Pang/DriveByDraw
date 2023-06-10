@@ -9,17 +9,30 @@ UDeck::UDeck()
 }
 UCard* UDeck::Draw()
 {
-	UCard* CardToDraw = nullptr;
+	UCard* Drawd = nullptr;
 	if (DrawIndex < OwnCard.Num())
 	{
-		CardToDraw = OwnCard[DrawIndex];
+		Drawd = OwnCard[DrawIndex];
 		DrawIndex++;
 	}
-	return CardToDraw;
+	;
+	return Drawd;
 }
 void UDeck::Shuffle()
 {
+	// 무작위로 섞기 위한 RandomStream 생성
+	FRandomStream RandomStream(FMath::Rand());
 
+	// 배열을 무작위로 섞음
+	const int32 ArraySize = OwnCard.Num();
+	for (int32 i = 0; i < ArraySize - 1; ++i)
+	{
+		const int32 RandomIndex = RandomStream.RandRange(i, ArraySize - 1);
+		if (RandomIndex != i)
+		{
+			OwnCard.Swap(i, RandomIndex);
+		}
+	}
 }
 void UDeck::InitDeck(int CardMaxNumber) 
 {

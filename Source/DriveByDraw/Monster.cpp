@@ -6,16 +6,19 @@
 // Sets default values
 AMonster::AMonster()
 {
+	HP = 0;
+	MonsterID = 0;
+	AttackDamage = 0;
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	
 }
 
 // Called when the game starts or when spawned
 void AMonster::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -32,3 +35,15 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void AMonster::SetAppearenceToID(int Id)
+{
+	
+}
+
+void AMonster::Attack(AMonster* Target)
+{
+	if (Target->HP > 0)
+	{
+		Target->HP -= 1;
+	}
+}

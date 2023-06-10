@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/BoxComponent.h"
+
 #include "GameFramework/Character.h"
 #include "Monster.generated.h"
 
@@ -14,6 +16,23 @@ class DRIVEBYDRAW_API AMonster : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMonster();
+
+	UPROPERTY(EditAnywhere)
+		uint8 MonsterID;
+
+	UPROPERTY(EditAnywhere)
+		int HP;
+
+	UPROPERTY(EditAnywhere)
+		int AttackDamage;
+
+	//id값을 통해 MeshBody에 메쉬를 넣어주기
+	UFUNCTION(BlueprintCallable)
+		void SetAppearenceToID(int Id);
+
+	UFUNCTION(BlueprintCallable)
+		void Attack(AMonster* Target);
+
 
 protected:
 	// Called when the game starts or when spawned

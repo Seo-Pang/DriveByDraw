@@ -33,8 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void SetAppearenceToID(int Id);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable ,BlueprintNativeEvent)
 		void Attack(AMonster* Target);
+	virtual void Attack_Implementation(AMonster* Target);
 
 
 protected:

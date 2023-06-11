@@ -18,4 +18,5 @@
 
 ### 노션: 
   [Notion](https://www.notion.so/Drive-By-Draw-4565dfbf72584ae49c42e5e9fff1b272, "Drive BY Draw")
+     
   [카드 생성 요령 지침서](https://www.notion.so/330da3b9606e4d59afcca346780d632a, "Asset Making")

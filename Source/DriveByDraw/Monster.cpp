@@ -40,7 +40,7 @@ void AMonster::SetAppearenceToID(int Id)
 	
 }
 
-void AMonster::Attack(AMonster* Target)
+void AMonster::Attack_Implementation(AMonster* Target)
 {
 	if (Target->HP > 0)
 	{

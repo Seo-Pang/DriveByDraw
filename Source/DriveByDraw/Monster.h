@@ -17,13 +17,16 @@ public:
 	// Sets default values for this character's properties
 	AMonster();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool MyTeam;
+
 	UPROPERTY(EditAnywhere)
 		uint8 MonsterID;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int HP;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int AttackDamage;
 
 	//id값을 통해 MeshBody에 메쉬를 넣어주기

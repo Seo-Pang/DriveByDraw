@@ -6,8 +6,9 @@
 // Sets default values
 ACardField::ACardField()
 {
-
+	MyTeam = false;
 	CardData = nullptr;
+	FieldOwner = nullptr;
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 

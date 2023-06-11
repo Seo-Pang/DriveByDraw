@@ -27,6 +27,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		UCard* CardData;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+		bool MyTeam;
+
+
 	UPROPERTY(EditAnywhere)
 		UCapsuleComponent* MainComponent;
 

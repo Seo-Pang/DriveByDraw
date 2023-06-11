@@ -50,6 +50,7 @@ void ADriver::BeginPlay()
         iField->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
         iField->AddActorLocalOffset(iOffset);
         iField->FieldOwner = this;
+        iField->MyTeam = this->MyTeam;
         i++;
     }
 	

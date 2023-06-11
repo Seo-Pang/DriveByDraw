@@ -46,4 +46,6 @@ void AMonster::Attack(AMonster* Target)
 	{
 		Target->HP -= 1;
 	}
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, FString::Printf(TEXT("Target HP : %d"), Target->HP));
 }

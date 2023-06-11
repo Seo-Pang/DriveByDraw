@@ -22,8 +22,8 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 
 public:
 	
-	UPROPERTY(EditAnywhere)
-		int MyTeam;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool MyTeam;
 
 	UPROPERTY(EditAnywhere)
 		UDeck* OwnDeck;

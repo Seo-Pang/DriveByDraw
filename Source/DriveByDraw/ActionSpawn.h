@@ -22,4 +22,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void SpawnMonster();
 
+	UFUNCTION(BlueprintCallable)
+		void AddAttackCard();
+
 };

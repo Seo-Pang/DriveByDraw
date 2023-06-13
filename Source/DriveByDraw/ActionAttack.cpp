@@ -11,5 +11,5 @@ void UActionAttack::Act()
 //여기서 카메라 전환 씬 같은거 넣어보고 싶음.
 void UActionAttack::Attack(AMonster* Caster, AMonster* Target)
 {
-	Target->HP -= Caster->AttackDamage;
+	Caster->Attack(Target);
 }

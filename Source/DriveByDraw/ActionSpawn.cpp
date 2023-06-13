@@ -17,3 +17,8 @@ void UActionSpawn::SpawnMonster()
 	MonsterSet;
 
 }
+
+void UActionSpawn::AddAttackCard()
+{
+	//null; make a node
+}

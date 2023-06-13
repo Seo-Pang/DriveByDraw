@@ -34,21 +34,13 @@ void UDeck::Shuffle()
 		}
 	}
 }
-void UDeck::InitDeck(int CardMaxNumber) 
+void UDeck::InitDeck() 
 {
 	
 	OwnCard.Empty();
 
-	for (int i = 0; i < CardMaxNumber; i++)
+	for (auto Card : Cards)
 	{
-		OwnCard.Add(NewObject<UCard>(GetTransientPackage(), UCard::StaticClass()));
-	}
-
-	for (int i = 0; i != OwnCard.Num(); i++)
-	{
-		
-		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("I : %d"), i)), false);
-		OwnCard[i]= UCard::SetCard(i);
-		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, FString(FString::Printf(TEXT("IDD : %d"), OwnCard[i]->id)), false);
+		OwnCard.Add(NewObject<UCard>(GetTransientPackage(), Card));
 	}
 }

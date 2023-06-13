@@ -35,24 +35,30 @@ public:
 		FString name;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		uint8 cost;
+
+	//카드 이미지
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UTexture2D* image;
+
+	//카드에 들어갈 액션 데이터
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TSubclassOf<UAction> Action;
+		TSubclassOf<UAction> ActionData;
 
+	//카드에 지정된 몬스터
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		AMonster* Monster;
+		TSubclassOf<AMonster> CardMonster;
 
-
-	//카드를 사용할 때 카드의 기능이 있는 함수입니다(액션 큐에 직접적으로 들어갈 함수)
-	UFUNCTION(BlueprintCallable)
-		virtual void Act();
+	//카드가 해당 몬스터로부터 생겨났을 경우 그 대상을 가리킴
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		AMonster* CastMonster;
 
 	//카드 종류를 반환합니다.
 	UFUNCTION(BlueprintCallable)
 		virtual CardType GetType();
 
 	UCard();
+
+	//얘는 카드 세팅하는 건데 점점 필요없을지도 모른다.
 	UFUNCTION(BlueprintCallable)
 	static UCard* SetCard(int CardID);
 };

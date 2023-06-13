@@ -32,7 +32,16 @@ UAction* UActionQueue::Dequeue()
 int UActionQueue::GetNumber()
 {
 	//수정 해야함
-	return 0;
+	return ActionList.Num();
+}
+
+void UActionQueue::QueueTest()
+{
+	for (auto a : ActionList)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Black, FString::Printf(TEXT("Action: %s"), *a->ActionOwner->GetActorLabel()));
+	}
+	
 }
 
 UActionQueue* UActionQueue::InitQueue()

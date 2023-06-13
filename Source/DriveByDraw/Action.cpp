@@ -9,17 +9,19 @@ UAction::UAction()
 	type = ActionType::Not;
 }
 
-void UAction::SpawnMonster()
-{
 
+void UAction::Damage(AMonster* target, int DamageAmount)
+{
+	target->HP -= DamageAmount;
 }
 
-void UAction::Damage(AMonster* target, float damage)
+void UAction::Act()
 {
-
+	//UAction은 아무것도 없으니 인터페이스로 구상하려하다 그냥 하기로 함
+	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Red, TEXT("Action ACT"));
 }
 
-UAction* UAction::SetAction(UCard* Card, int Team)
+UAction* UAction::SetAction(TSubclassOf<UCard> Card, int Team)
 {
 	UAction* item = NewObject<UAction>();;
 	item->type = ActionType::Not;

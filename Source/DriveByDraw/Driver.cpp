@@ -41,19 +41,22 @@ void ADriver::BeginPlay()
     int i = 0;
     for (auto iField : OwnField)
     {
-        GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, FString::Printf(TEXT("i = %d"), i), false);
+        //GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Blue, FString::Printf(TEXT("i = %d"), i), false);
         FVector iOffset(450.f, -625.f / 2, 0.f);
         iOffset += FVector(0, 125 * i, 0);
+        
         iField = GetWorld()->SpawnActor<ACardField>(DefaultField->GeneratedClass);
+        iField->MyTeam = this->MyTeam;
+        iField->FieldOwner = this;
 
         //LoadObject<UBlueprint>(nullptr, TEXT("Blueprint'/Game/DBD/Extra/CardField.CardField'"), TEXT("ASD")
         iField->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
         iField->AddActorLocalOffset(iOffset);
-        iField->FieldOwner = this;
-        iField->MyTeam = this->MyTeam;
+        
+        OwnField[i] = iField;
         i++;
     }
-	
+	;
 }
 
 // Called every frame

@@ -25,10 +25,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool MyTeam;
 
-	UPROPERTY(EditAnywhere)
-		UDeck* OwnDeck;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSubclassOf<UDeck> DeckSet;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		UDeck* Deck;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<ACardField*> OwnField;
 
 	//사용할 기본 클래스

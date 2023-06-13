@@ -24,8 +24,9 @@ class DRIVEBYDRAW_API ACardField : public AActor
 	
 
 public:	
+	//필드에 저장할 카드 데이터
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
-		UCard* CardData;
+		TSubclassOf<UCard> CardData;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		bool MyTeam;
@@ -40,22 +41,20 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UBoxComponent* MonsterSpawnLocation;
 
+	//필드 주인
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		ADriver* FieldOwner;
-
 
 	//필드 위에 소환된 몬스터
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		AMonster* SettingMonster;
 
-	UFUNCTION(BlueprintCallable)
-		AMonster* SpawnMonster(UCard* Card);
 
 	//카드를 필드에 드래그했을 경우 상호작용. 성공했으면 true를 반환, 실패하면 false를 반환
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		bool DragOnCard(UCard* DragCard);
+		void DragOnCard(UCard* DragCard);
 
-	virtual bool DragOnCard_Implementation(UCard* DragCard);
+	virtual void DragOnCard_Implementation(UCard* DragCard);
 	
 	
 		

@@ -34,5 +34,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 		static UActionQueue* InitQueue();
 
+	UFUNCTION(BlueprintCallable)
+		void QueueTest();
+	
 	
 };

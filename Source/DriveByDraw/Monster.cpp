@@ -35,16 +35,12 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AMonster::SetAppearenceToID(int Id)
-{
-	
-}
 
 void AMonster::Attack_Implementation(AMonster* Target)
 {
 	if (Target->HP > 0)
 	{
-		Target->HP -= 1;
+		Target->HP -= AttackDamage;
 	}
 
 	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, FString::Printf(TEXT("Target HP : %d"), Target->HP));

@@ -28,10 +28,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int AttackDamage;
-
-	//id값을 통해 MeshBody에 메쉬를 넣어주기
-	UFUNCTION(BlueprintCallable)
-		void SetAppearenceToID(int Id);
+	
 
 	UFUNCTION(BlueprintCallable ,BlueprintNativeEvent)
 		void Attack(AMonster* Target);

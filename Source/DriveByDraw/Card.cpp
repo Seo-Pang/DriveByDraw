@@ -16,10 +16,6 @@ UCard::UCard()
 		 
 }
 
-void UCard::Act()
-{
-
-}
 
 CardType UCard::GetType()
 {

@@ -7,6 +7,7 @@
 #include "Monster.h"
 #include "Card.h"
 #include "Driver.h"
+#include "CardField.h"
 
 #include "Action.generated.h"
 
@@ -18,13 +19,14 @@
 class UCard;
 class AMonster;
 class ADriver;
+class ACardField;
 
 UENUM(BlueprintType)
 enum class ActionType : uint8
 {
 	Spawn UMETA(DisplayName = "Spawn"),
 	Attack UMETA(DisplayName = "Attack"),
-	Magic UMETA(DisplayName = "Magic"),
+	Spped UMETA(DisplayName = "Speed"),
 	Not  UMETA(DisplayName = "Not"),
 };
 
@@ -34,15 +36,30 @@ class DRIVEBYDRAW_API UAction : public UObject
 	GENERATED_BODY()
 		
 public:
+	//액션의 주인
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		ADriver* ActionOwner;
-
+	
+	//액션을 야기한 몬스터
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		bool hasMonster;
+		AMonster* CastingMonster;
+
+	//액션의 대상인 몬스터
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		AMonster* TargettingMonster;
+
+	//액션이 일어나는 카드필드
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		ACardField* ActingField;
+		
 
 private:
-	void SpawnMonster();
-	void Damage(AMonster* target, float damage);
+	
+	
+
+
+	//타겟 몬스터가 데미지를 입는 함수
+	void Damage(AMonster* target, int DamageAmount);
 public:
 	UAction();
 
@@ -51,7 +68,11 @@ public:
 
 	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "CardType"), BlueprintReadWrite)
 	ActionType type;
+
+	//내장된 행동을 실행하는 함수
+	UFUNCTION(BlueprintCallable)
+		virtual void Act();
 	
 	UFUNCTION(BlueprintCallable)
-		static UAction* SetAction(UCard* Card, int Team);
+		static UAction* SetAction(TSubclassOf<UCard> Card, int Team);
 };

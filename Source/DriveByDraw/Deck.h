@@ -21,6 +21,11 @@ private:
 
 public:
 
+	//덱에 총 들어갈 카드
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSubclassOf<UCard>> Cards;
+
+	//게임 진행중 남은 카드
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<UCard*> OwnCard;
 
@@ -37,6 +42,7 @@ public:
 
 	//덱 세팅
 	UFUNCTION(BlueprintCallable)
-		void InitDeck(int CardMaxNumber);
+		void InitDeck();
+
 	UDeck();
 };

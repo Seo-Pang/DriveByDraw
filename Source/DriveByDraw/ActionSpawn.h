@@ -17,6 +17,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TSubclassOf<AMonster> MonsterSet;
 
+	UActionSpawn();
+
 		void Act() override;
 
 	UFUNCTION(BlueprintCallable)

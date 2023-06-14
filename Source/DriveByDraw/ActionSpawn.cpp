@@ -3,6 +3,11 @@
 
 #include "ActionSpawn.h"
 
+UActionSpawn::UActionSpawn()
+{
+	type = ActionType::Spawn;
+}
+
 void UActionSpawn::Act()
 {
 	SpawnMonster();
@@ -13,8 +18,6 @@ void UActionSpawn::SpawnMonster()
 
 	ActingField->SettingMonster = GetWorld()->SpawnActor<AMonster>(MonsterSet);
 	ActingField->SettingMonster->AttachToActor(ActingField, FAttachmentTransformRules::KeepRelativeTransform);
-	ActingField;
-	MonsterSet;
 
 }
 

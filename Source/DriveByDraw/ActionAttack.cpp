@@ -3,6 +3,11 @@
 
 #include "ActionAttack.h"
 
+UActionAttack::UActionAttack()
+{
+	type = ActionType::Attack;
+}
+
 void UActionAttack::Act() 
 {
 	Attack(CastingMonster, TargettingMonster);

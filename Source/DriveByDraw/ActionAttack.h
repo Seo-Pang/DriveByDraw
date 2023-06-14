@@ -16,6 +16,8 @@ class DRIVEBYDRAW_API UActionAttack : public UAction
 public:
 	void Act() override;
 
+	UActionAttack();
+
 	UFUNCTION(BlueprintCallable)
 		void Attack(AMonster* Caster, AMonster* Target);
 	

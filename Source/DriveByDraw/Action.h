@@ -66,7 +66,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UTexture2D* Icon;
 
-	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "CardType"), BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "ActionType"), BlueprintReadWrite)
 	ActionType type;
 
 	//내장된 행동을 실행하는 함수

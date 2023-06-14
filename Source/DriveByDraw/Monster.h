@@ -24,7 +24,11 @@ public:
 		uint8 MonsterID;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int Scale;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int HP;
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int AttackDamage;

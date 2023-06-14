@@ -34,9 +34,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TArray<ACardField*> OwnField;
 
-	//사용할 기본 클래스
+	//사용할 기본 카드필드의 기본 클래스
 	UPROPERTY(EditAnywhere)
 		UBlueprint* DefaultField;
+
+	//코스트를 사용하기 위해 사용
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Mana;
+
+	//마나를 채우기 위한 자원 재생 속도
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float ManaRegeneration;
 
 protected:
 
@@ -68,6 +76,6 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	void ToggleWidgetVisibility();
+	
 
 };

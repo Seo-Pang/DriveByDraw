@@ -23,6 +23,8 @@ ADriver::ADriver()
     // Attach the camera to the Spring Arm
     CameraComponent->SetupAttachment(SpringArmComponent);
 
+    Mana = 0.f;
+    ManaRegeneration = 1.f;
 
     
    
@@ -74,7 +76,7 @@ void ADriver::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
     check(PlayerInputComponent);
 
     // Bind jump events
-    PlayerInputComponent->BindAction("Tap", IE_Pressed, this, &ADriver::ToggleWidgetVisibility);
+    
 
 }
 
@@ -82,10 +84,4 @@ void ADriver::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void ADriver::Debugging()
 {
     GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Succss", false);
-}
-
-void ADriver::ToggleWidgetVisibility()
-{
-    GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Succss", false);
-
 }

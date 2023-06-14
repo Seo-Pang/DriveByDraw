@@ -52,9 +52,9 @@ public:
 
 	//카드를 필드에 드래그했을 경우 상호작용. 성공했으면 true를 반환, 실패하면 false를 반환
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-		void DragOnCard(UCard* DragCard);
+		bool DragOnCard(UCard* DragCard);
 
-	virtual void DragOnCard_Implementation(UCard* DragCard);
+	virtual bool DragOnCard_Implementation(UCard* DragCard);
 	
 	
 		

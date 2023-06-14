@@ -87,6 +87,8 @@ public:
 	uint8 bUsingMotionControllers : 1;
 
 protected:
+
+	void ToggleWidgetVisibility();
 	
 	/** Fires a projectile. */
 	void OnFire();

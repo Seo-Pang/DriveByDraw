@@ -136,6 +136,8 @@ void ADriveByDrawCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAxis("TurnRate", this, &ADriveByDrawCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ADriveByDrawCharacter::LookUpAtRate);
+
+	PlayerInputComponent->BindAction("Tap", IE_Pressed, this, &ADriveByDrawCharacter::ToggleWidgetVisibility);
 }
 
 void ADriveByDrawCharacter::OnFire()
@@ -216,6 +218,11 @@ void ADriveByDrawCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 	TouchItem.bIsPressed = false;
 }
 
+
+void ADriveByDrawCharacter::ToggleWidgetVisibility()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Tap", false);
+}
 //Commenting this section out to be consistent with FPS BP template.
 //This allows the user to turn without using the right virtual joystick
 

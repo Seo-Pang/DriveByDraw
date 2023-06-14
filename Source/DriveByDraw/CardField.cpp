@@ -43,7 +43,7 @@ void ACardField::Tick(float DeltaTime)
 
 }
 
-void  ACardField::DragOnCard_Implementation(UCard* DragCard)
+bool  ACardField::DragOnCard_Implementation(UCard* DragCard)
 {
 	bool ReturnData = false;
 	
@@ -68,7 +68,8 @@ void  ACardField::DragOnCard_Implementation(UCard* DragCard)
 	default :
 		break;
 	}
-	;
+
+	return ReturnData;
 }
 
 

@@ -10,6 +10,7 @@
 
 #include "Deck.h"
 #include "CardField.h"
+
 #include "Driver.generated.h"
 
 class ACardField;

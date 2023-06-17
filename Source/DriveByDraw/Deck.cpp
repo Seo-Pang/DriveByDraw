@@ -44,3 +44,4 @@ void UDeck::InitDeck()
 		OwnCard.Add(NewObject<UCard>(GetTransientPackage(), Card));
 	}
 }
+

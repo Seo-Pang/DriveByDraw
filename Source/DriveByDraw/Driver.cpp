@@ -88,7 +88,21 @@ void ADriver::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 }
 
 
-void ADriver::Debugging()
+void ADriver::Die()
 {
-    GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Black, "Succss", false);
+    this->Destroy();
+}
+
+
+void ADriver::Damage(int DamageAccount)
+{
+    if (this->HP > 0)
+    {
+        this->HP -= DamageAccount;
+    }
+    
+    if (this->HP <= 0)
+    {
+        Die();
+    }
 }

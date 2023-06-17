@@ -44,5 +44,22 @@ void AMonster::Attack_Implementation(AMonster* Target)
 		Target->HP -= AttackDamage;
 	}
 
-	GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Cyan, FString::Printf(TEXT("Target HP : %d"), Target->HP));
+}
+
+void AMonster::AttackDriver_Implementation(ADriver* Target)
+{
+	if (Target->HP > 0)
+	{
+		Target->HP -= AttackDamage;
+	}
+
+	if (Target->HP <= 0)
+	{
+		Die();
+	}
+}
+
+void AMonster::Die()
+{
+	this->Destroy();
 }

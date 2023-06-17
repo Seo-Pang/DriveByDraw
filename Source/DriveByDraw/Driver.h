@@ -20,7 +20,9 @@ class DRIVEBYDRAW_API ADriver : public ACharacter
 {
 	GENERATED_BODY()
 
-public:
+public:	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int HP;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool MyTeam;
@@ -68,7 +70,10 @@ public:
 	ADriver();
 
 	UFUNCTION(BlueprintCallable)
-		void Debugging();
+		void Damage(int DamageAccount);
+
+	UFUNCTION(BlueprintCallable)
+		void Die();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

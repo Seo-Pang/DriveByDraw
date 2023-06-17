@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/BoxComponent.h"
-
+#include "Driver.h"
 #include "GameFramework/Character.h"
 #include "Monster.generated.h"
 
@@ -38,12 +38,19 @@ public:
 		void Attack(AMonster* Target);
 	virtual void Attack_Implementation(AMonster* Target);
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+		void AttackDriver(ADriver* Target);
+	virtual void AttackDriver_Implementation(ADriver* Target);
+
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	UFUNCTION(BlueprintCallable)
+		void Die();
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

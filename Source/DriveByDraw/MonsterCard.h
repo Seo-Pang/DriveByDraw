@@ -15,9 +15,7 @@ class DRIVEBYDRAW_API UMonsterCard : public UCard
 	GENERATED_BODY()
 	
 public:
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		TSubclassOf<AMonster> Monster;
+	UMonsterCard();
 
 	CardType GetType() override;
 };

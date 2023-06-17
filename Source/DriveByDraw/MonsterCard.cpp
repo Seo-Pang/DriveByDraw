@@ -2,8 +2,14 @@
 
 
 #include "MonsterCard.h"
+#include "ActionSpawn.h"
 
 CardType UMonsterCard::GetType()
 {
 	return CardType::MonsterCard;
+}
+
+UMonsterCard::UMonsterCard() : UCard()
+{
+	ActionData = UActionSpawn::StaticClass();
 }

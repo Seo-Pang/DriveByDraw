@@ -26,7 +26,12 @@ ADriver::ADriver()
     Mana = 0.f;
     ManaRegeneration = 1.f;
 
-    
+    BaseLookUpRate = 45.f;
+    bUseControllerRotationYaw = false;
+    bUseControllerRotationPitch = false;
+    bUseControllerRotationRoll = false;
+    SpringArmComponent->bUsePawnControlRotation = true;
+    CameraComponent->bUsePawnControlRotation = false;
    
 
 }
@@ -75,8 +80,10 @@ void ADriver::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
     check(PlayerInputComponent);
 
-    // Bind jump events
-    
+    // Bind events
+    PlayerInputComponent->BindAxis("LookRight", this, &ADriver::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("LookUp", this, &ADriver::AddControllerPitchInput);
+  
 
 }
 

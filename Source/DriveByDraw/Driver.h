@@ -10,7 +10,6 @@
 
 #include "Deck.h"
 #include "CardField.h"
-
 #include "Driver.generated.h"
 
 class ACardField;
@@ -56,6 +55,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	USpringArmComponent* SpringArmComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+		float BaseLookUpRate;
+
 private:
 	//max count 
 	const int FieldNumber = 6;
@@ -77,6 +79,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
 
 };

@@ -88,10 +88,11 @@ void ADriver::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 }
 
 
-void ADriver::Die()
+void ADriver::Die_Implementation()
 {
-    this->Destroy();
+    //abstract :: NULL
 }
+
 
 
 void ADriver::Damage(int DamageAccount)

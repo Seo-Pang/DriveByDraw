@@ -72,8 +72,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void Damage(int DamageAccount);
 
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 		void Die();
+	virtual void Die_Implementation();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
